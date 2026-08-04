@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html style="scroll-behavior: smooth;">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project Proposal & Technical Specifications</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Calibri', 'Segoe UI', system-ui, sans-serif; background:#f1f5f9; margin:0; padding:40px 16px; display:flex; justify-content:center; color:#1e293b; }
+    .page { background:#fff; width:100%; max-width:850px; padding:60px 70px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border-radius:4px; position:relative; }
+    .doc-title { color:#1e3a8a; font-family: Georgia, serif; font-size:32px; margin:0 0 8px 0; border-bottom:3px solid #2563eb; padding-bottom:12px; }
+    .doc-author { font-style:italic; color:#64748b; font-size:15px; margin-top:0; margin-bottom:32px; }
+    @media (max-width: 850px) {
+      .page { padding: 30px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1 class="doc-title">Project Proposal & Technical Specifications</h1>
+    <p class="doc-author">By Document Author</p>
+    
+        <nav id="contents" style="background:#f8fafc; border:1px solid #cbd5e1; border-left:4px solid #2563eb; padding:20px; border-radius:8px; margin-bottom:36px; box-shadow:0 1px 3px rgba(0,0,0,0.05); scroll-margin-top:20px;">
+          <h2 style="margin:0 0 12px 0; font-size:18px; color:#1e3a8a; display:flex; align-items:center; gap:8px;">
+            <span style="font-size:20px;">📋</span> Table of Contents
+          </h2>
+          <ul style="margin:0; padding-left:24px; list-style-type:disc;">
+            
+          <li style="margin-bottom:8px;">
+            <a href="#executive-summary" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              1. Tell me about yourself / Walk me through your experience
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#objectives" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              2. What is the objective of User Acceptance Testing (UAT)? How is UAT different from QA/System Testing? Explain a UAT test case.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#implementation" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              3. Explain the UAT Test Management Process from planning through test closure.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#conclusion" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              4. What are the typical UAT Entry Criteria?UAT Entry Criteria are the predefined conditions that must be met before User Acceptance Testing can officially begin.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-5" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              5. What is included in a UAT Exit Report, and how do you determine UAT readiness for production deployment?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-6" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              6. What is the difference between a Test Strategy and a Test Plan?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-7" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              7. Explain what is RTM.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-8" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              8. What types of gaps or issues do you look for while reviewing requirements?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-9" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              9. How do you begin requirement analysis when you join a new project?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-10" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              10. How do you test when requirements are incomplete, unclear, or ambiguous?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-11" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              11. Can you share an example where you identified a requirement gap early and prevented a production issue?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-12" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              12. Can you walk me through the defect management process you follow in HP ALM?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-13" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              13. Can you explain the defect life cycle you follow in your projects?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-14" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              14. Can you describe your experience managing defect triage during UAT?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-15" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              15. As a UAT Lead, what activities require coordination with business users and stakeholders?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-16" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              16. What artifacts do you present before requesting sign‑off?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-17" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              17. Describe a situation where sign‑off was at risk. How did you handle it?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-18" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              18. Can you give me a brief overview of how you handle Business Sign‑Off during UAT?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-19" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              19. Can you provide an example of a Risk, Mitigation, and Contingency Plan?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-20" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              20. Can you provide an example of an Issue, Mitigation, and Contingency Plan?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-21" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              21. Explain the Home Financing (Phoenix) project at BMO.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-22" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              22. Explain the Sales Compass project at Bombardier.
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-23" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              23. How do you close UAT when there are known open defects? How do you obtain business sign-off and document residual risks?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-24" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              24. What will be your approach if the requirement changes in between execution?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-25" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              25. What would you do if the system works exactly as documented, but during UAT you find that it doesn’t support the actual business process?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-26" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              26. You have raised a showstopper issue. How will you complete the rest of the test cases and still align with the project timelines?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-27" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              27. You are two days away from UAT completion, 40% of testing remains, and a key feature such as Transaction History is not available for testing. How would you handle the situation and ensure timely closure of UAT?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-28" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              28. What actions do you take when the project status changes to red?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-29" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              29. What QA documents and testing artifacts have you prepared during the testing lifecycle?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-30" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              30. What are the key UAT dependencies on the Technology Team, and how do you manage them?
+            </a>
+          </li>
+          <li style="margin-bottom:8px;">
+            <a href="#section-31" style="color:#2563eb; text-decoration:none; font-weight:500; font-size:15px;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
+              31. What is your personal brand as a UAT Lead? What are your key strengths, and how have they contributed to successful UAT deliveries?
+            </a>
+          </li>
+          </ul>
+        </nav>
+    <main>
+          <section id="executive-summary" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#objectives" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">1. Tell me about yourself / Walk me through your experience</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">I have over 12 years of experience in Software Testing with a strong focus on UAT, test coordination, and stakeholder management across major Canadian banks and enterprise applications. I’ve led UAT for several large programs at BMO &amp; CIBC.</span></p><p><span style="white-space-collapse: preserve;">My experience includes reviewing requirements, designing end‑to‑end UAT scenarios, preparing test cases, coordinating business users, executing tests, managing defects through daily triage, and driving UAT to sign‑off. I’ve also prepared key UAT artifacts such as RTMs, test plans, daily status reports, and exit reports.</span></p><p><span style="white-space-collapse: preserve;">Most recently at Bombardier, I supported UAT for the Sales Compass program, where I validated business workflows, executed functional and regression tests, tracked defects in ALM, and worked closely with business stakeholders to ensure the solution met their expectations.</span></p><p><span style="white-space-collapse: preserve;">Across all my roles, I’m known for strong communication, structured test management, and the ability to work closely with both business and technology teams to deliver a solution the business can confidently approve for production. I believe this background aligns well with the UAT Lead role.</span></p></div>
+          </section>
+        
+          <section id="objectives" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#implementation" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">2. What is the objective of User Acceptance Testing (UAT)? How is UAT different from QA/System Testing? Explain a UAT test case.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;">From my experience, QA and UAT serve different purposes even though both are&nbsp;<span style="color: rgb(51, 65, 85); font-size: 15px;">essential phases of software quality</span>.<div><br><div><strong data-start="666" data-end="690" style="color: rgb(51, 65, 85); font-size: 15px;">QA or System Testing</strong><span style="color: rgb(51, 65, 85); font-size: 15px;">&nbsp;is performed by the QA team t</span>heir focus is making sure the application works as designed — validating functionality, identifying defects, and confirming the system behaves correctly according to the documented requirements.</div><div><br></div><div><strong data-start="921" data-end="928" style="color: rgb(51, 65, 85); font-size: 15px;">UAT</strong><span style="color: rgb(51, 65, 85); font-size: 15px;">, on the other hand, is performed by business users with support from the UAT team after QA is complete. The focus is on validating that the solution supports the actual business process and meets business expectations.<br></span><p><span style="white-space-collapse: preserve;">For example, in one of my projects, the business needed all customer‑facing forms updated from “BMO Harris Bank N.A.” to “BMO Bank N.A.” A UAT test case for that requirement wasn’t just checking one screen. I validated the Account Verification page, generated PDFs, forms in the Forms Library, customer emails, and any other communication where the legal entity name appeared. I also ensured the underlying account verification workflow continued to function correctly after the branding change.</span></p><p><span style="white-space-collapse: preserve;">So for me, UAT is about validating the end‑to‑end business flow, confirming the experience from a user’s perspective, and making sure the solution is ready for real‑world use </span></p></div></div></div>
+          </section>
+        
+          <section id="implementation" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#conclusion" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">3. Explain the UAT Test Management Process from planning through test closure.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><div>The UAT Lifecycle is a structured process used to ensure that a solution meets business requirements and is ready for production deployment.</div><div><br></div><div>It begins with Requirement Analysis, where I review business requirements, identify business processes, clarify gaps, and establish traceability through the RTM.</div><div><br></div><div>Next is UAT Planning, where I prepare the UAT Test Plan, define the scope, schedule, resources, risks, dependencies, and entry and exit criteria.</div><div><br></div><div>During UAT Preparation, I ensure that test scenarios, test cases, test data, the UAT environment, and business users are all ready before execution begins.</div><div><br></div><div>The next phase is UAT Execution, where business users execute test cases while I coordinate testing, monitor progress, and support issue resolution.</div><div><br></div><div>Any defects identified are managed through the Defect Management process, including defect logging, triage, retesting, and regression testing.</div><div><br></div><div>Throughout execution, I perform Monitoring and Reporting by publishing daily status reports, tracking progress, defects, risks, and issues, and communicating updates to stakeholders.</div><div><br></div><div>Once testing is complete, I move to UAT Closure, where I validate the exit criteria, prepare the UAT Exit Report, document any residual risks, and obtain business sign-off.</div><div><br></div><div>Finally, we assess Production Readiness. Based on the UAT results, I recommend whether the solution is ready for production, while the final go-live decision is made by the business after reviewing the UAT outcomes and accepting any remaining business risks.</div></div>
+          </section>
+        
+          <section id="conclusion" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-5" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">4. What are the typical UAT Entry Criteria?UAT Entry Criteria are the predefined conditions that must be met before User Acceptance Testing can officially begin.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, UAT only runs smoothly when certain conditions are in place, so before I begin UAT, I always verify a few key things.</span></p><p><span style="white-space-collapse: preserve;">First, the business requirements need to be fully approved, and the earlier testing phases should be completed with no critical defects outstanding. I also make sure the UAT environment is stable, accessible, and configured correctly, and that the required test data is prepared and validated.</span></p><p><span style="white-space-collapse: preserve;">On the preparation side, I confirm that test scenarios, test cases, and the RTM are reviewed and approved, business users are identified and have the right access, and everyone understands the defect management process. Finally, the UAT test plan and schedule should be agreed upon by all stakeholders.</span></p><p><span style="white-space-collapse: preserve;">Once these pieces are in place, I’m comfortable recommending that UAT execution can officially begin.</span></p></div>
+          </section>
+        
+          <section id="section-5" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-6" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">5. What is included in a UAT Exit Report, and how do you determine UAT readiness for production deployment?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, the UAT Exit Report is essentially the final summary of everything that happened during UAT and a recommendation on whether the solution is ready for production. It usually includes the UAT objectives, the scope we covered, a clear test execution summary, pass/fail metrics, requirement coverage, and a defect summary with any outstanding issues or deferred items. I also include risks, validation of exit criteria, and the final business sign‑off.</span></p><p><span style="white-space-collapse: preserve;">Before I recommend production readiness, I make sure all critical business scenarios have been executed, exit criteria are fully met, and there are no open high‑severity defects. If any lower‑severity defects remain, they must be documented and formally accepted by the business. I also confirm that business users have validated the solution and that any required regression testing is complete.</span></p><p><span style="white-space-collapse: preserve;">Once all of that is in place and the business is comfortable with the residual risks, I’m confident recommending that the application is ready for production deployment.</span></p></div>
+          </section>
+        
+          <section id="section-6" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-7" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">6. What is the difference between a Test Strategy and a Test Plan?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, a Test Strategy and a Test Plan serve two different purposes.</span></p><p><span style="white-space-collapse: preserve;">A Test Strategy is the high‑level direction for how quality will be ensured on a project. It sets the overall approach — things like the testing objectives, the types of testing we’ll perform, the environments we’ll use, the tools, the defect management process, and the governance model. It’s more of a guiding framework that stays consistent throughout the project.</span></p><p><span style="white-space-collapse: preserve;">A Test Plan is much more execution‑focused. It translates that strategy into a practical roadmap for the team. It outlines what will be tested, who will test it, the timelines, the scope in and out, the entry and exit criteria, the dependencies, the risks, the test data needs, and the reporting structure.</span></p><p><span style="white-space-collapse: preserve;">In simple terms, the Test Strategy tells us <strong>how we approach quality</strong>, while the Test Plan tells us <strong>how we execute testing day‑to‑day</strong>.</span></p></div>
+          </section>
+        
+          <section id="section-7" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-8" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">7. Explain what is RTM.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, an RTM — Requirements Traceability Matrix — is one of the most important UAT artifacts because it helps ensure complete coverage. I use it to map each business requirement to the corresponding functional requirement, test scenarios, test cases, and any defects raised during execution.</span></p><p><span style="white-space-collapse: preserve;">It gives me a clear view of what’s been tested, what’s pending, and whether every requirement has been validated end‑to‑end. The main purpose is simple: make sure nothing is missed. When the RTM is complete and fully updated, I’m confident that UAT has covered all the business requirements.</span></p></div>
+          </section>
+        
+          <section id="section-8" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-9" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">8. What types of gaps or issues do you look for while reviewing requirements?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">When I review requirements, I’m not just checking what’s written — I’m looking for anything that could create confusion later in UAT or lead to defects in production. From experience, the most common gaps are incomplete or ambiguous requirements, missing business rules, unclear calculations, undefined exception flows, and missing validations.</span></p><table class="MsoTableGrid" border="1" cellspacing="0" cellpadding="0" align="left" style="border-collapse:collapse;border:none;mso-border-alt:solid windowtext .5pt;
+ mso-yfti-tbllook:1184;mso-table-lspace:9.0pt;margin-left:.1in;mso-table-rspace:
+ 9.0pt;margin-right:.1in;mso-table-anchor-vertical:margin;mso-table-anchor-horizontal:
+ margin;mso-table-left:left;mso-table-top:27.6pt;mso-padding-alt:0in 5.4pt 0in 5.4pt">
+ <tbody><tr>
+  <td width="390" valign="top" style="width:233.75pt;border:solid windowtext 1.0pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Example 1 — Missing Calculation Logic<o:p></o:p></b></p>
+  </td>
+  <td width="390" valign="top" style="width:233.75pt;border:solid windowtext 1.0pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;mso-border-alt:
+  solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Example 2 — Ambiguous Business Rule<o:p></o:p></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="390" valign="top" style="width:233.75pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Requirement:</b> “System should calculate
+  property tax automatically.”</p>
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Gap / Ambiguity:</b></p>
+  <ul style="margin-top:0in" type="disc">
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">What formula?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">Which tax rate?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">Does it vary by province?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">Should it round up or down?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l0 level1 lfo1;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">What happens if tax data is missing?</li>
+  </ul>
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><o:p>&nbsp;</o:p></p>
+  </td>
+  <td width="390" valign="top" style="width:233.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Requirement:</b> “System should send a
+  notification when the mortgage application is approved.”</p>
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>Gap / Ambiguity:</b></p>
+  <ul style="margin-top:0in" type="disc">
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l1 level1 lfo2;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">What type of notification? Email? SMS? In‑app?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l1 level1 lfo2;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">Who receives it — applicant, co‑applicant, broker?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l1 level1 lfo2;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">What is the exact approval stage? Conditional or final?</li>
+   <li class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;
+       line-height:normal;mso-list:l1 level1 lfo2;tab-stops:list .5in;
+       mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:around;
+       mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;mso-height-rule:
+       exactly">What template should be used?</li>
+  </ul>
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><o:p>&nbsp;</o:p></p>
+  </td>
+ </tr>
+ <tr>
+  <td width="390" valign="top" style="width:233.75pt;border:solid windowtext 1.0pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;mso-border-alt:solid windowtext .5pt;
+  padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>How you would explain it:</b> “I would raise this
+  because the calculation logic is not defined. In banking projects, unclear
+  financial formulas lead to major defects during UAT.”</p>
+  </td>
+  <td width="390" valign="top" style="width:233.75pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  mso-border-alt:solid windowtext .5pt;padding:0in 5.4pt 0in 5.4pt">
+  <p class="MsoNormal" style="margin-bottom:0in;margin-bottom:.0001pt;line-height:
+  normal;mso-element:frame;mso-element-frame-hspace:9.0pt;mso-element-wrap:
+  around;mso-element-anchor-horizontal:margin;mso-element-top:27.6pt;
+  mso-height-rule:exactly"><b>How you would explain it:</b> “I would flag this
+  because the requirement doesn’t specify the notification type, recipients, or
+  the exact approval stage. Without clarity, UAT cannot validate the
+  communication triggers.”</p>
+  </td>
+ </tr>
+</tbody></table><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;"><br></span></p><p><span style="white-space-collapse: preserve;">I also pay close attention to integration points, security and access rules, reporting needs, notifications, and compliance or audit requirements, because these are often overlooked. Another important check for me is testability — if a requirement can’t be objectively validated, I work with the Business Analyst to refine it before we move forward.</span></p><p><span style="white-space-collapse: preserve;">Catching these gaps early makes a huge difference. It prevents rework, avoids delays during UAT, and reduces the risk of business‑impacting issues after deployment.</span></p></div>
+          </section>
+        
+          <section id="section-9" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-10" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">9. How do you begin requirement analysis when you join a new project?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">When I join a new project, I start requirement analysis by first understanding the business domain and the key workflows. I review all available documentation such as the BRD, functional specs, user stories, acceptance criteria, process flows, solution design, and interface details.</span></p><p><span style="white-space-collapse: preserve;">I then schedule knowledge‑transfer sessions with the Business Analyst and Product Owner to clarify objectives, assumptions, dependencies, and any areas that need deeper understanding.</span></p><p><span style="white-space-collapse: preserve;">During this review, I identify business rules, integrations, user roles, validations, calculations, exception handling, reports, notifications, and regulatory requirements. Based on this, I create an initial Requirements Traceability Matrix and outline high‑level business scenarios that will later evolve into detailed UAT test cases.</span></p><p><span style="white-space-collapse: preserve;">My goal is to build a clear, end‑to‑end understanding of the business process before moving into test design.</span></p></div>
+          </section>
+        
+          <section id="section-10" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-11" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">10. How do you test when requirements are incomplete, unclear, or ambiguous?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">When requirements are incomplete or unclear, I never proceed based on assumptions. I first identify and document the exact areas of ambiguity. Then I discuss them with the Business Analyst, Product Owner, or business SMEs to get clarification.</span></p><p><span style="white-space-collapse: preserve;">If testing needs to continue before clarification is finalized, I document the temporary assumptions, share them with stakeholders, and get their agreement so everything remains traceable.</span></p><p><span style="white-space-collapse: preserve;">Once the requirement is clarified, I update the test cases, RTM, and any impacted documentation to reflect the final expected behaviour. This approach avoids rework and ensures full transparency.</span></p><h3><strong>Example:</strong></h3><p><span style="white-space-collapse: preserve;">In one mortgage project, the rejection communication workflow was not clearly documented. Instead of guessing, I flagged the gap, discussed it with the BA and business team, and documented the interim assumption. Once the requirement was updated, I revised the test cases and validated the correct workflow. This prevented incorrect testing and ensured alignment with business expectations.</span></p></div>
+          </section>
+        
+          <section id="section-11" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-12" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">11. Can you share an example where you identified a requirement gap early and prevented a production issue?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">In one of my mortgage projects, I was reviewing the requirements and preparing UAT scenarios for the approval workflow. The documentation clearly described how customers would be notified when their application was approved, but there was no mention of what should happen when an application was declined.</span></p><p><span style="white-space-collapse: preserve;">I raised this with the Business Analyst and the business stakeholders, and it became clear that the rejection communication process had been completely overlooked during requirements gathering. The requirement was updated, development added the missing functionality, and we included the corresponding UAT scenarios.</span></p><p><span style="white-space-collapse: preserve;">If this gap had not been caught early, customers with declined applications would not have received any communication, which would have caused operational issues and a poor customer experience. Catching it upfront prevented a production issue and reinforced why detailed requirement analysis is so important before testing begins.</span></p></div>
+          </section>
+        
+          <section id="section-12" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-13" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">12. Can you walk me through the defect management process you follow in HP ALM?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, the defect management process in HP ALM starts the moment I find an issue during UAT. Before logging anything, I always make sure the issue is reproducible and not caused by incorrect test data or an environment problem.</span></p><p><span style="white-space-collapse: preserve;">Once I confirm it’s a valid defect, I log it in ALM with a clear summary, detailed steps to reproduce, expected vs actual results, severity, priority, environment details, and screenshots. Good documentation upfront saves a lot of back‑and‑forth later.</span></p><p><span style="white-space-collapse: preserve;">After logging, the defect is assigned to the development team. They analyze it, apply a fix, and update the status. When the fix is deployed, I retest the scenario and run any required regression to make sure nothing else was impacted.</span></p><p><span style="white-space-collapse: preserve;">If the issue is resolved, I close the defect. If not, I reopen it with updated evidence.</span></p><p><span style="white-space-collapse: preserve;">Throughout the cycle, I track defect aging, severity trends, and blockers during daily triage meetings. This helps keep everyone aligned and ensures defects are being addressed in the right order based on business impact.</span></p></div>
+          </section>
+        
+          <section id="section-13" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-14" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">13. Can you explain the defect life cycle you follow in your projects?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">From my experience, the defect life cycle is simply the path a defect follows from the moment I log it until it’s fully resolved. In most of my projects, especially using HP ALM, the flow is fairly standard.</span></p><p><span style="white-space-collapse: preserve;">When I find an issue, I log it as <strong>New</strong> with clear steps, expected vs actual results, and evidence. Once the defect is reviewed, it moves to <strong>Assigned</strong>, meaning a developer or team has taken ownership. When they start working on it, the status becomes <strong>Open</strong> or <strong>In Progress</strong>.</span></p><p><span style="white-space-collapse: preserve;">After the fix is completed, the developer marks it as <strong>Fixed</strong>, and it comes back to me for <strong>Retest</strong>. If the fix works, I mark it <strong>Verified</strong> and then <strong>Closed</strong>. If it doesn’t work, I <strong>Reopen</strong> it with updated evidence.</span></p><p><span style="white-space-collapse: preserve;">Sometimes defects are <strong>Rejected</strong> if they’re not valid, or <strong>Deferred</strong> if they’re low‑priority and planned for a future release.</span></p><p><span style="white-space-collapse: preserve;">Throughout the cycle, I track defect aging, severity, and blockers during daily triage meetings to make sure issues are being resolved in the right order based on business impact.</span></p></div>
+          </section>
+        
+          <section id="section-14" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-15" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">14. Can you describe your experience managing defect triage during UAT?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">In most of my UAT projects, defect triage was a daily activity. My role was to make sure every new defect was reviewed, validated, prioritized correctly, and assigned to the right development team.</span></p><p><span style="white-space-collapse: preserve;">During triage meetings, we focused on the business impact of each defect — whether it was reproducible, what severity it should carry, and what the realistic target fix date should be. I also monitored defect aging, followed up on overdue items, coordinated retesting once fixes were deployed, and ensured regression testing was completed when needed.</span></p><p><span style="white-space-collapse: preserve;">If a Critical or High‑severity defect impacted a key business process, I escalated it immediately to the Project Manager and business stakeholders so they could make informed decisions about timelines and production readiness.</span></p><p><span style="white-space-collapse: preserve;">My overall goal in triage was always to maintain transparency, keep business and technology aligned, and ensure defects were resolved efficiently and in the right order based on business priority.</span></p></div>
+          </section>
+        
+          <section id="section-15" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-16" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">15. As a UAT Lead, what activities require coordination with business users and stakeholders?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">In my experience, UAT is highly collaborative, so coordination with business users and stakeholders happens throughout the entire cycle.</span></p><p><span style="white-space-collapse: preserve;">During planning, I work with business users to walk through requirements, understand their processes, validate scope, and clarify acceptance criteria. I also partner with them to identify critical business scenarios and review UAT test cases to make sure coverage reflects real operational workflows.</span></p><p><span style="white-space-collapse: preserve;">Before execution, I coordinate test data preparation, user access, environment readiness, and the UAT kickoff so everyone understands the testing approach, timelines, and defect management process.</span></p><p><span style="white-space-collapse: preserve;">During execution, I run daily status meetings, facilitate defect triage, communicate progress, and work closely with business users to validate defects, retest fixes, and confirm whether the solution meets their expectations. I also coordinate decisions around defect prioritization, scope changes, risks, and production readiness.</span></p><p><span style="white-space-collapse: preserve;">At the end of UAT, I review results with stakeholders, discuss outstanding risks, obtain formal business sign‑off, and ensure all approvals are documented before deployment.</span></p><p><div></div></p><p><span style="white-space: pre-wrap;">Strong communication and proactive engagement with business users is essential — it’s what ensures UAT reflects real business needs and supports a smooth go‑live.</span></p></div>
+          </section>
+        
+          <section id="section-16" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-17" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">16. What artifacts do you present before requesting sign‑off?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">Before requesting sign‑off, I present a complete UAT Exit Package, which usually includes:</span></p><ul role="list"><li><p><span style="white-space-collapse: preserve;">UAT Exit Report</span></p></li><li><p><span style="white-space-collapse: preserve;">Requirement coverage / RTM</span></p></li><li><p><span style="white-space-collapse: preserve;">Test execution summary</span></p></li><li><p><span style="white-space-collapse: preserve;">Defect summary (open, closed, deferred)</span></p></li><li><p><span style="white-space-collapse: preserve;">Risk assessment</span></p></li><li><p><span style="white-space-collapse: preserve;">Outstanding issues and business acceptance</span></p></li><li><p><span style="white-space-collapse: preserve;">Go/No-Go recommendation</span></p></li></ul><p><span style="white-space-collapse: preserve;">For example, during the branding update project (changing “BMO Harris Bank N.A.” to “BMO Bank N.A.”), I presented evidence showing all customer‑facing forms, PDFs, and workflows were validated end‑to‑end.</span></p></div>
+          </section>
+        
+          <section id="section-17" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-18" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">17. Describe a situation where sign‑off was at risk. How did you handle it?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">In a mortgage workflow project, sign‑off was at risk because the rejection notification process was missing from the requirements. The system technically worked as documented, but it didn’t support the actual business process.</span></p><p><span style="white-space-collapse: preserve;">I escalated the gap, coordinated with the BA and development team, got the requirement updated, and ensured the new workflow was tested. Once the business validated the fix, they were comfortable signing off.</span></p><p><span style="white-space-collapse: preserve;">This prevented a production issue where declined applicants would not have received communication.</span></p></div>
+          </section>
+        
+          <section id="section-18" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-19" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">18. Can you give me a brief overview of how you handle Business Sign‑Off during UAT?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">Business sign‑off is the final confirmation from stakeholders that the solution meets their operational needs and is ready for production. As a UAT Lead, I make sure stakeholders have complete visibility before signing off. I present the UAT Exit Report, requirement coverage, defect summary, outstanding risks, and a clear Go/No-Go recommendation.</span></p><p><span style="white-space-collapse: preserve;">Throughout UAT, I keep business users closely involved through daily status updates, defect triage, and walkthroughs of critical scenarios. By the time we reach sign‑off, they already understand what passed, what failed, what was deferred, and what risks remain.</span></p><p><span style="white-space-collapse: preserve;">If there are open defects, I ensure they are low severity, fully documented, and formally accepted by the business. If sign‑off is at risk — for example, when I identified the missing rejection notification workflow in a mortgage project — I escalate early, get alignment, and ensure the gap is resolved before deployment.</span></p><p><span style="white-space-collapse: preserve;">Once stakeholders approve, I document sign‑off through the exit report and formal communication, and transition the project into deployment readiness and early production support.</span></p></div>
+          </section>
+        
+          <section id="section-19" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-20" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">19. Can you provide an example of a Risk, Mitigation, and Contingency Plan?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">A practical example comes from the BMO Branch Pinpads project. One of the major risks was that the physical pinpads required for UAT might not arrive on time. The delivery was postponed three times, and when they finally arrived, they were the wrong model and had to be returned.</span></p><h3><strong>Risk</strong></h3><p><span style="white-space-collapse: preserve;">Delays in receiving the correct pinpad devices could push the UAT start date and reduce the available testing window.</span></p><h3><strong>Mitigation Plan</strong></h3><p><span style="white-space-collapse: preserve;">I worked closely with the technology team to track delivery status, escalate delays early, and ensure everyone had clear visibility of the risk. Meanwhile, I prepared all UAT prerequisites — test cases, data, and environment readiness — so that once the correct devices arrived, we could begin testing immediately without losing time.</span></p><h3><strong>Contingency Plan</strong></h3><p><span style="white-space-collapse: preserve;">If delays continued, the plan was to prioritize critical scenarios first, extend testing hours if needed, and request additional support to recover time. Fortunately, once the correct devices were delivered, we executed all planned test cases and still met the UAT timelines without impacting the release schedule.</span></p><p><span style="white-space-collapse: preserve;">This example shows how early risk identification, proactive communication, and structured mitigation/contingency planning help keep UAT on track even when external dependencies cause delays.</span></p></div>
+          </section>
+        
+          <section id="section-20" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-21" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">20. Can you provide an example of an Issue, Mitigation, and Contingency Plan?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><h3><strong>ssue (Already Occurred)</strong></h3><p><span style="white-space-collapse: preserve;">During the BMO Branch Pinpads project, we finally received the pinpads at the test lab. All business users and stakeholders were present to begin UAT. When the device was connected and powered on, we immediately realized it was <strong>not the correct model</strong> — it did not display <em>BMO N.A.</em> or the <em>BMO logo</em>. This meant the device was not configured for BMO and could not be used for testing. We had to initiate a return and request the correct model.</span></p><h3><strong>Impact</strong></h3><p><span style="white-space-collapse: preserve;">All device‑dependent UAT test cases were completely blocked. The planned UAT start date was at risk, and any delay could have impacted the overall project timeline and production readiness.</span></p><p><span style="white-space-collapse: preserve;">Because the issue had already occurred, the focus was on recovery:</span></p><ul role="list"><li><p><span style="white-space-collapse: preserve;">Coordinated with the <strong>technology team</strong> to confirm the correct model and arrange an urgent replacement.</span></p></li><li><p><span style="white-space-collapse: preserve;">Communicated the issue and its impact to the Project Manager, Product Owner, and business stakeholders.</span></p></li><li><p><span style="white-space-collapse: preserve;">Continued executing <strong>non‑device‑dependent test cases</strong> (backend validations, workflow checks) to maintain progress.</span></p></li><li><p><span style="white-space-collapse: preserve;">Ensured all UAT prerequisites — test cases, data, environment readiness — were fully prepared so testing could begin immediately once the correct devices arrived.</span></p></li></ul><p><span style="white-space-collapse: preserve;">These actions helped minimize downtime and kept the team productive.</span></p><p><span style="white-space-collapse: preserve;">If the correct pinpads were delayed again, the contingency plan was:</span></p><ul role="list"><li><p><span style="white-space-collapse: preserve;">Prioritize critical device‑dependent scenarios first once the correct hardware arrived.</span></p></li><li><p><span style="white-space-collapse: preserve;">Extend testing hours or add weekend execution to recover lost time.</span></p></li><li><p><span style="white-space-collapse: preserve;">Request additional testers to accelerate execution if needed.</span></p></li><li><p><span style="white-space-collapse: preserve;">If adequate testing could not be completed, recommend adjusting the release timeline.</span></p></li></ul><p><span style="white-space-collapse: preserve;">Fortunately, once the correct pinpads arrived, we completed all device‑dependent test cases and still met the UAT timelines without impacting the release schedule.</span></p></div>
+          </section>
+        
+          <section id="section-21" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-22" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">21. Explain the Home Financing (Phoenix) project at BMO.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p>BMO launched the Home Financing (Phoenix) project to modernize its mortgage approval process and strengthen integration with First National Financial’s Merlin portal. Merlin is used by mortgage brokers to submit applications, track deal status, and communicate with underwriters. Because BMO relied heavily on Merlin for mortgage processing, accurate financial calculations and workflow validation were critical.</p><p>My responsibility as a UAT resource was to validate end‑to‑end mortgage workflows processed through Merlin, ensure financial calculations matched BMO’s algorithms, and confirm that communication triggers, emails, and integration points behaved exactly as expected. I worked closely with First National Financial’s mortgage team, who provided detailed test data and calculation rules.</p><p><span style="white-space-collapse: preserve;">I logged into Merlin using read‑only access and validated each processed mortgage application against the expected outcomes provided by business users and documented requirements. This included checking:</span></p><ul role="list"><li><p><span style="white-space-collapse: preserve;">Workflow progression through all expected mortgage stages</span></p></li><li><p><span style="white-space-collapse: preserve;">Mortgage‑related emails generated on behalf of BMO</span></p></li><li><p><span style="white-space-collapse: preserve;">Financial values such as down payment, taxes, investment property rules, and multi‑dwelling unit calculations</span></p></li><li><p><span style="white-space-collapse: preserve;">Communication triggers at approval, conditional approval, and decline stages</span></p></li><li><p><span style="white-space-collapse: preserve;">Data exchange between Merlin and BMO’s integrated systems</span></p></li></ul><p><span style="white-space-collapse: preserve;">I also performed financial reconciliation, integration validation, regression testing, and business process verification to ensure the entire mortgage lifecycle behaved correctly.</span></p><p>My testing helped identify several calculation discrepancies and workflow gaps early, preventing potential production issues. By validating Merlin’s outputs against BMO’s business rules, we ensured accurate mortgage processing, correct communication to brokers and customers, and a smooth integration between First National Financial and BMO systems. This contributed to a successful UAT cycle and supported a stable go‑live for the Phoenix project.<span style="white-space-collapse: preserve;"></span></p><p><span style="white-space-collapse: preserve;"><br></span></p></div>
+          </section>
+        
+          <section id="section-22" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-23" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">22. Explain the Sales Compass project at Bombardier.</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span class="">The Sales Compass initiative at Bombardier was about 
+transforming Salesforce from a passive record-keeper into an active 
+intelligence system. My role was solely on the UAT and validation side—I
+ was responsible for testing the voice-to-text automation that generates
+ call summaries, the lead generation workflows, and the opportunity 
+triggers. I ensured that these new AI-powered features actually worked 
+for the sales reps, reduced their manual admin work, and didn't 
+introduce any data integrity issues.</span></p></div>
+          </section>
+        
+          <section id="section-23" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-24" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">23. How do you close UAT when there are known open defects? How do you obtain business sign-off and document residual risks?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">Closing UAT with known open defects is possible as long as the business formally accepts the risk. Before closure, I prepare a clear summary of all outstanding defects, including severity, business impact, workarounds, and planned resolution dates.</span></p><p><span style="white-space-collapse: preserve;">I review these items with business stakeholders, Product Owners, and the Project Manager to confirm whether the remaining issues are acceptable and do not affect critical functionality, financial calculations, regulatory requirements, or customer experience. If the business agrees, the defects are classified as residual risks.</span></p><p><span style="white-space-collapse: preserve;">I document this in the UAT Exit Report along with a Residual Risk Register that lists each open defect, its impact, workaround, risk level, and the business owner who is accepting the risk.</span></p><p><span style="white-space-collapse: preserve;">Once everything is documented and reviewed, I obtain formal business sign‑off. The business owns the decision to accept risk, and my role as UAT Lead is to provide full transparency so they can make an informed go‑live decision.</span></p></div>
+          </section>
+        
+          <section id="section-24" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-25" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">24. What will be your approach if the requirement changes in between execution?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">Requirement changes during UAT do happen, and my approach is to handle them in a controlled and structured way.</span></p><p><span style="white-space-collapse: preserve;">First, I clarify the nature of the change — whether it’s a true requirement change, a defect, a misunderstanding, or a scope change. If it’s a legitimate change, I work with the Business Analyst and Product Owner to document the updated requirement and understand its impact on development, testing effort, timelines, and release scope.</span></p><p><span style="white-space-collapse: preserve;">Next, I perform an impact analysis to identify which business processes and test cases are affected, whether new test cases or regression testing are needed, and whether the RTM and UAT schedule need updates.</span></p><p><span style="white-space-collapse: preserve;">I then present the impact to the Project Manager and business stakeholders so they can decide whether the change should be included in the current release or deferred through change control.</span></p><p><span style="white-space-collapse: preserve;">Once approved, I update the UAT artifacts, communicate the change to the testing team, execute the revised test cases, and ensure the UAT Exit Report reflects the final agreed‑upon scope.</span></p><p><span style="white-space-collapse: preserve;">My priority is always to maintain traceability, avoid uncontrolled scope creep, and ensure stakeholders fully understand the impact before implementation.</span></p></div>
+          </section>
+        
+          <section id="section-25" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-26" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">25. What would you do if the system works exactly as documented, but during UAT you find that it doesn’t support the actual business process?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p>This situation comes up quite often, and it’s one of the main reasons UAT is so important. If I find that the system works exactly as documented but still doesn’t support the real business process, the first thing I do is sit with the business users to understand the gap. I ask them to walk me through the actual workflow and explain where the solution is falling short.</p><p>Once I understand the issue, I compare it against the documented requirements and acceptance criteria. If the system is behaving exactly as written, then it’s not a defect — it’s a missed or incomplete requirement.</p><p>At that point, I bring the Business Analyst, Product Owner, and key stakeholders together to confirm whether this is a missing business rule or a change in the business process. If everyone agrees the solution doesn’t meet the operational need, I recommend raising a change request so the requirement and scope can be updated. We also assess the impact on timelines, testing, and release planning.</p><p>If the gap affects a critical workflow or introduces business or regulatory risk, I escalate it to the project leadership so they can make an informed decision before go‑live.</p><p>Throughout the process, I make sure everything is documented — the gap, the discussions, the decisions, and the approvals — so there is full traceability.</p><p>UAT isn’t just about checking whether the system meets the specification; it’s about confirming that the solution actually works for the business. If it doesn’t, even when technically correct, it needs to be addressed.</p></div>
+          </section>
+        
+          <section id="section-26" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-27" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">26. You have raised a showstopper issue. How will you complete the rest of the test cases and still align with the project timelines?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">If I raise a showstopper during UAT, my first step is to assess the impact instead of stopping all testing. I identify which business processes and test cases are blocked, and which ones are independent and can still be executed. I immediately continue with all non‑blocked test cases so the team maintains momentum while the defect is being worked on.</span></p><p><span style="white-space-collapse: preserve;">I log the defect with the highest severity, notify the Project Manager, Product Owner, and development team, and push for an urgent triage discussion to confirm timelines for the fix.</span></p><p><span style="white-space-collapse: preserve;">Once the fix is deployed, I prioritize retesting the showstopper, executing all previously blocked test cases, and performing regression testing on impacted areas to ensure nothing else was affected.</span></p><p><span style="white-space-collapse: preserve;">If timelines are at risk, I provide a clear impact assessment — remaining testing, risks, and schedule implications — so leadership can decide whether to extend UAT or adjust the release plan.</span></p><p><span style="white-space-collapse: preserve;">My goal is always to keep testing moving wherever possible while ensuring critical functionality is fully validated before go‑live.</span></p></div>
+          </section>
+        
+          <section id="section-27" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-28" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">27. You are two days away from UAT completion, 40% of testing remains, and a key feature such as Transaction History is not available for testing. How would you handle the situation and ensure timely closure of UAT?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p data-start="2523" data-end="2605" class="PDq2pG_selectionAnchorContainer" style="color: rgb(51, 65, 85); font-size: 15px; font-family: Calibri, sans-serif;">Two days before UAT completion, if 40% of testing remains and a key feature like Transaction History is still unavailable, this is a <strong>critical Issue.</strong></p><p data-start="2610" data-end="2817" style="color: rgb(51, 65, 85); font-size: 15px; font-family: Calibri, sans-serif;"><strong data-start="2610" data-end="2621">Impact:</strong>&nbsp;Around 40% of UAT cannot be executed. Business users are unable to validate a core banking function, increasing the risk of releasing untested functionality into production.</p><p data-start="2822" data-end="3212" style="color: rgb(51, 65, 85); font-size: 15px; font-family: Calibri, sans-serif;"><strong data-start="2822" data-end="2842">Immediate action:</strong>&nbsp;I would immediately inform the Project Manager, Product Owner, Development Lead, and business stakeholders. I would obtain an updated deployment timeline, continue executing all unaffected test cases, reprioritize testing activities, and schedule additional testing resources if required. I would also monitor the issue through daily defect and project status meetings.</p><p style="color: rgb(51, 65, 85); font-size: 15px; font-family: Calibri, sans-serif;"></p><p data-start="3217" data-end="3763" style="color: rgb(51, 65, 85); font-size: 15px; font-family: Calibri, sans-serif;"><strong data-start="3217" data-end="3238">Contingency Plan:</strong>&nbsp;If the feature cannot be delivered in time for adequate testing, I would prepare a formal residual risk assessment describing the untested functionality, business impact, customer impact, regulatory implications, and available workarounds. During the Go/No-Go meeting, I would recommend extending UAT or postponing the production release if the functionality is business critical. If the business decides to proceed, I would ensure that the residual risk is formally documented and accepted by the authorized business owner.</p></div>
+          </section>
+        
+          <section id="section-28" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-29" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">28. What actions do you take when the project status changes to red?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">When a project moves to Red status, my first step is to understand the root cause rather than just reporting the color change. I assess whether the issue is due to critical defects, environment instability, delayed development, limited testing time, or business resource constraints.</span></p><p><span style="white-space-collapse: preserve;">Once the cause is clear, I work with the relevant stakeholders to create a recovery plan. This may include prioritizing high‑impact scenarios, reallocating resources, accelerating defect resolution, adjusting timelines, or requesting additional support.</span></p><p><span style="white-space-collapse: preserve;">I document the risks, impacts, and mitigation actions clearly and communicate them to project leadership. From there, I provide frequent status updates and track progress until the project stabilizes or leadership makes a decision on scope or schedule changes.</span></p><p><span style="white-space-collapse: preserve;">My focus is always on transparency, proactive communication, and protecting the quality of the release.</span></p></div>
+          </section>
+        
+          <section id="section-29" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-30" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">29. What QA documents and testing artifacts have you prepared during the testing lifecycle?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">Throughout the testing lifecycle, I prepare and maintain several key QA and UAT artifacts to ensure proper planning, execution, and traceability.</span></p><p><span style="white-space-collapse: preserve;">At the start of the project, I review all requirement documents — BRD, functional specs, user stories, acceptance criteria, solution designs, and process flows — to understand the scope. Based on this, I prepare the <strong>Test Strategy</strong> and <strong>Test Plan</strong>, outlining the approach, timelines, scope, resources, risks, and entry/exit criteria.</span></p><p><span style="white-space-collapse: preserve;">To ensure full requirement coverage, I create and maintain the <strong>Requirements Traceability Matrix (RTM)</strong>, mapping each requirement to test scenarios and test cases. I then develop <strong>high‑level test scenarios</strong> and <strong>detailed test cases</strong>, including preconditions, steps, expected results, and required test data.</span></p><p><span style="white-space-collapse: preserve;">Before execution, I coordinate <strong>test data preparation</strong> and confirm <strong>environment readiness</strong>.</span></p><p><span style="white-space-collapse: preserve;">During execution, I maintain all core UAT artifacts such as <strong>Daily Status Reports</strong>, <strong>Test Execution Reports</strong>, <strong>Defect Logs</strong>, <strong>RAID Logs</strong>, <strong>Risk Registers</strong>, and <strong>Defect Metrics</strong>. I also facilitate defect triage meetings and publish dashboards showing progress and release readiness.</span></p><p><span style="white-space-collapse: preserve;">At the end of UAT, I prepare the <strong>UAT Exit Report</strong>, summarizing execution results, coverage, defect statistics, outstanding risks, and the final recommendation for go‑live.</span></p><p><span style="white-space-collapse: preserve;">These artifacts ensure transparency, governance, and complete traceability throughout the testing lifecycle.</span></p></div>
+          </section>
+        
+          <section id="section-30" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#section-31" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">30. What are the key UAT dependencies on the Technology Team, and how do you manage them?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p>UAT has several critical dependencies on the Technology Team because they provide the technical foundation required for testing. The key dependencies typically include:</p><ul data-start="3706" data-end="3998" style="color: rgb(51, 65, 85); font-size: 15px;"><li data-section-id="9zuxia" data-start="3706" data-end="3750">UAT environment availability and stability</li><li data-section-id="1lji9cb" data-start="3753" data-end="3777">Application deployment</li><li data-section-id="w3rn5o" data-start="3780" data-end="3804">Interface availability</li><li data-section-id="1avfu6e" data-start="3807" data-end="3827">Database refreshes</li><li data-section-id="154qg6v" data-start="3830" data-end="3853">Test data preparation</li><li data-section-id="1omdgk4" data-start="3856" data-end="3882">User access provisioning</li><li data-section-id="17efomv" data-start="3885" data-end="3921">Batch jobs and scheduled processes</li><li data-section-id="t26af0" data-start="3924" data-end="3938">Defect fixes</li><li data-section-id="xosofo" data-start="3941" data-end="3960">Build deployments</li><li data-section-id="18npc58" data-start="3963" data-end="3996">Third-party system availability</li></ul><div><span style="color: rgb(51, 65, 85); font-size: 15px;">To manage these dependencies, I maintain a dependency tracker, conduct regular readiness reviews, and discuss outstanding items during project status meetings.&nbsp;</span><font color="#334155"><span style="font-size: 15px;"></span></font><span style="color: rgb(51, 65, 85); font-size: 15px;">I proactively follow up with development, infrastructure, database, release management, and middleware teams to ensure deliverables are completed according to schedule.</span></div><div><p data-start="4338" data-end="4555" style="color: rgb(51, 65, 85); font-size: 15px;">If any dependency is delayed, I immediately assess the business impact, update the project RAID log, communicate the risk to stakeholders, and work with the Project Manager to develop mitigation and contingency plans.</p><p style="color: rgb(51, 65, 85); font-size: 15px;"></p><p data-start="4560" data-end="4662" style="color: rgb(51, 65, 85); font-size: 15px;">My objective is to identify dependency risks early rather than allowing them to become project issues.</p></div></div>
+          </section>
+        
+          <section id="section-31" style="position:relative; margin-bottom:44px; scroll-margin-top:20px;">
+            <div style="position:absolute; left:-52px; top:0; display:flex; flex-direction:column; gap:6px;">
+              <a href="#contents" title="Jump to Table of Contents (Up)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↑</a>
+              <a href="#contents" title="Jump to Next Section (Down)" style="width:32px; height:32px; border-radius:50%; background:#ffffff; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; text-decoration:none; color:#334155; font-weight:bold; font-size:14px; transition:all 0.15s;" onmouseover="this.style.background='#2563eb'; this.style.color='#fff';" onmouseout="this.style.background='#ffffff'; this.style.color='#334155';">↓</a>
+            </div>
+            <h2 style="font-size:22px; color:#0f172a; border-bottom:2px solid #e2e8f0; padding-bottom:8px; margin-top:0; margin-bottom:16px; font-family:Georgia, serif;">31. What is your personal brand as a UAT Lead? What are your key strengths, and how have they contributed to successful UAT deliveries?</h2>
+            <div style="line-height:1.7; color:#334155; font-size:15px;"><p><span style="white-space-collapse: preserve;">My personal brand as a UAT Lead is being business‑focused, collaborative, and reliable. I make sure UAT validates real business workflows, not just documented requirements, so the business feels confident going into production.</span></p><p><span style="white-space-collapse: preserve;">One of my key strengths is bridging the gap between business and technology. I work closely with Business Analysts, business users, and technical teams to translate requirements into meaningful end‑to‑end UAT scenarios and ensure the solution supports actual business processes.</span></p><p><span style="white-space-collapse: preserve;">I’m also strong in planning and coordination. I focus on requirement analysis, test data readiness, environment preparation, and clear communication so UAT starts smoothly and stays on track.</span></p><p><span style="white-space-collapse: preserve;">Another strength is stakeholder communication and defect management. I provide transparent status updates, facilitate defect triage, manage risks proactively, and keep everyone aligned, especially when timelines are tight.</span></p><p><span style="white-space-collapse: preserve;">Across my projects with BMO, CIBC, and Bombardier, these strengths have helped me run organized UAT cycles, support business users effectively, manage defects efficiently, and contribute to successful releases.</span></p></div>
+          </section>
+        </main>
+  </div>
+</body>
+</html>
